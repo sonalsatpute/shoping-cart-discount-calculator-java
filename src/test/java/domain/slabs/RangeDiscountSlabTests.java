@@ -13,4 +13,14 @@ public class RangeDiscountSlabTests {
 
         Assert.assertEquals(0, actual);
     }
+
+//    @Test
+//    public void when_purchase_amount_in_slab_should_return_discount() {
+//        long purchaseAmount = 1000;
+//        double discountPercent = 0.10;
+//        DiscountSlab discountSlab = new RangeDiscountSlab(CustomerType.REGULAR, 1, 5000, new DiscountCalculator(discountPercent));
+//        long actual = discountSlab.discount(purchaseAmount);
+//
+//        Assert.assertEquals(0, actual);
+//    }
 }
