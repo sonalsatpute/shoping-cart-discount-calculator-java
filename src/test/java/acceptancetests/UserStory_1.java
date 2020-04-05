@@ -32,4 +32,14 @@ public class UserStory_1 {
 
         Assert.assertEquals(purchaseAmount, billAmount, 0);
     }
+
+    @Test
+    public void given_discount_slabs_for_purchase_amount_10000_bill_amount_should_be_9500() {
+        long purchaseAmount = 10000;
+        CartDiscountCalculator discountCalculator = new CartDiscountCalculator(discountSlabs);
+
+        double billAmount = discountCalculator.billAmount(CustomerType.REGULAR, purchaseAmount);
+
+        Assert.assertEquals(9500, billAmount, 0);
+    }
 }

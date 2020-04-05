@@ -14,10 +14,12 @@ public class CartDiscountCalculator {
     }
 
     public double billAmount(CustomerType customerType, long purchaseAmount) {
-        double billAmount = discountSlabs.stream().mapToDouble(
-                discountSlab -> discountSlab.discount(customerType, purchaseAmount)
-        ).sum();
+        double discountedAmount = 0.0;
+        for (DiscountSlab discountSlab : discountSlabs) {
+            double discount = discountSlab.discount(customerType, purchaseAmount);
+            discountedAmount += discount;
+        }
 
-        return billAmount == 0 ? purchaseAmount : billAmount;
+        return purchaseAmount - discountedAmount;
     }
 }

@@ -34,7 +34,7 @@ public class CartDiscountCalculatorTests {
 
         double billAmount = discountCalculator.billAmount(CustomerType.REGULAR, purchaseAmount);
 
-        Assert.assertEquals(600, billAmount, 0);
+        Assert.assertEquals(5900, billAmount, 0);
     }
 
     @Test
@@ -45,8 +45,8 @@ public class CartDiscountCalculatorTests {
         long purchaseAmount = 15000;
         CartDiscountCalculator discountCalculator = new CartDiscountCalculator(discountSlabs);
 
-        double billAmount = discountCalculator.billAmount(CustomerType.REGULAR, purchaseAmount);
+        double actual = discountCalculator.billAmount(CustomerType.REGULAR, purchaseAmount);
 
-        Assert.assertEquals(1000, billAmount, 0);
+        Assert.assertEquals(14000, actual, 0);
     }
 }
