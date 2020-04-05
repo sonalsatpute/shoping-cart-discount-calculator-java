@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class RangeDiscountSlabTests {
     @Test
-    public void when_purchase_amount_not_in_slab_should_return_zero_discount() {
+    public void when_purchase_amount_less_than_slab_should_return_zero_discount() {
         long purchaseAmount = 100;
         double discountPercent = 0.10;
         Calculator calculator = new DiscountCalculator(discountPercent);
@@ -27,6 +27,17 @@ public class RangeDiscountSlabTests {
         long actual = discountSlab.discount(CustomerType.REGULAR, purchaseAmount);
 
         Assert.assertEquals(100, actual);
+    }
+
+    @Test
+    public void when_purchase_amount_is_greater_than_slab_should_return_discount() {
+        long purchaseAmount = 15000;
+        double discountPercent = 0.10;
+        Calculator calculator = new DiscountCalculator(discountPercent);
+        DiscountSlab discountSlab = new RangeDiscountSlab(CustomerType.REGULAR, 5000, 10000, calculator);
+        long actual = discountSlab.discount(CustomerType.REGULAR, purchaseAmount);
+
+        Assert.assertEquals(500, actual);
     }
 
     @Test

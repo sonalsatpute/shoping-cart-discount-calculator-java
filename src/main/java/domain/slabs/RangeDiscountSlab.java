@@ -18,10 +18,20 @@ public class RangeDiscountSlab implements DiscountSlab {
 
     @Override
     public long discount(CustomerType customerType, long purchaseAmount) {
-        if (this.customerType != customerType) return 0;
-        if (!isInRange(purchaseAmount)) return 0;
+        long discountableAmount = purchaseAmount;
 
-        return this.discountCalculator.calculate(purchaseAmount);
+        if (this.customerType != customerType) return 0;
+
+        if (isGreaterThanSlabRange(purchaseAmount))
+            discountableAmount = this.end - this.start;
+        else if (!isInRange(purchaseAmount))
+            return 0;
+
+        return this.discountCalculator.calculate(discountableAmount);
+    }
+
+    private boolean isGreaterThanSlabRange(long purchaseAmount) {
+        return purchaseAmount > this.end;
     }
 
     private boolean isInRange(long purchaseAmount) {
