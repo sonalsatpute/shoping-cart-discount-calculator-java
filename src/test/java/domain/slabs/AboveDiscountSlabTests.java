@@ -28,4 +28,15 @@ public class AboveDiscountSlabTests {
 
         Assert.assertEquals(0, actual);
     }
+
+    @Test
+    public void when_purchase_amount_is_in_slab_should_return_discount() {
+        long purchaseAmount = 6000;
+        double discountPercent = 0.20;
+        Calculator calculator = new DiscountCalculator(discountPercent);
+        DiscountSlab discountSlab = new AboveDiscountSlab(CustomerType.REGULAR, 5000, calculator);
+        long actual = discountSlab.discount(CustomerType.REGULAR, purchaseAmount);
+
+        Assert.assertEquals(1200, actual);
+    }
 }
