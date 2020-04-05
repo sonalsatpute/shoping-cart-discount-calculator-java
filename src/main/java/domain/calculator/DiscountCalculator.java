@@ -1,6 +1,6 @@
 package domain.calculator;
 
-public class DiscountCalculator {
+public class DiscountCalculator implements Calculator {
     private double discountPercentage;
 
     public DiscountCalculator(double discountPercentage) {
