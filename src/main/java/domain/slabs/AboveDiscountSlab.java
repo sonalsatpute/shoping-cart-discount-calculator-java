@@ -19,7 +19,7 @@ public class AboveDiscountSlab implements DiscountSlab {
         if (this.customerType != customerType) return 0;
         if (isLessThanSlab(purchaseAmount)) return 0;
 
-        return calculator.calculate(purchaseAmount);
+        return calculator.calculate(purchaseAmount - this.start);
     }
 
     private boolean isLessThanSlab(long purchaseAmount) {

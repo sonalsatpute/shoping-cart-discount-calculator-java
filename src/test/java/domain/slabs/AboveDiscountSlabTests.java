@@ -37,6 +37,6 @@ public class AboveDiscountSlabTests {
         DiscountSlab discountSlab = new AboveDiscountSlab(CustomerType.REGULAR, 5000, calculator);
         long actual = discountSlab.discount(CustomerType.REGULAR, purchaseAmount);
 
-        Assert.assertEquals(1200, actual);
+        Assert.assertEquals(200, actual);
     }
 }
