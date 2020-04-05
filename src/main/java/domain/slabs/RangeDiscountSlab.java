@@ -35,6 +35,6 @@ public class RangeDiscountSlab implements DiscountSlab {
     }
 
     private boolean isInRange(long purchaseAmount) {
-        return purchaseAmount >= this.start && purchaseAmount < this.end;
+        return purchaseAmount > this.start && purchaseAmount < this.end;
     }
 }
