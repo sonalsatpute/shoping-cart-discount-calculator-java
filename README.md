@@ -27,3 +27,7 @@ Customer Type | Purchase Amount | Bill Amount |
 - Follow 10 minutes’ iterations, there should be something working to demo at the end of every iteration, commit your changes on github.
 - Write Unit tests to execute and verify
 the program
+
+# Assumption
+- All inputs are valid
+- Slabs Configuration is valid
