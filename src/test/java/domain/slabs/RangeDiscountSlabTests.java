@@ -46,8 +46,8 @@ public class RangeDiscountSlabTests {
         double discountPercent = 0.10;
         Calculator calculator = new DiscountCalculator(discountPercent);
         DiscountSlab discountSlab = new RangeDiscountSlab(CustomerType.REGULAR, 1, 5000, calculator);
-        long actual = discountSlab.discount(CustomerType.REGULAR, purchaseAmount);
+        long actual = discountSlab.discount(CustomerType.UNKNOWN, purchaseAmount);
 
-        Assert.assertEquals(100, actual);
+        Assert.assertEquals(0, actual);
     }
 }
