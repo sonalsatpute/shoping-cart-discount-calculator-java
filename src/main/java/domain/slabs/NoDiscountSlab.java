@@ -4,7 +4,7 @@ import models.CustomerType;
 
 public class NoDiscountSlab implements DiscountSlab {
     @Override
-    public long discount(CustomerType customerType, long purchaseAmount) {
+    public double discount(CustomerType customerType, double purchaseAmount) {
         return 0;
     }
 }

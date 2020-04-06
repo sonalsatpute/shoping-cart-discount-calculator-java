@@ -5,11 +5,11 @@ import models.CustomerType;
 
 public class RangeDiscountSlab implements DiscountSlab {
     private CustomerType customerType;
-    private long start;
-    private long end;
+    private double start;
+    private double end;
     private Calculator discountCalculator;
 
-    public RangeDiscountSlab(CustomerType customerType, long start, long end, Calculator discountCalculator) {
+    public RangeDiscountSlab(CustomerType customerType, double start, double end, Calculator discountCalculator) {
         this.customerType = customerType;
         this.start = start;
         this.end = end;
@@ -17,7 +17,7 @@ public class RangeDiscountSlab implements DiscountSlab {
     }
 
     @Override
-    public long discount(CustomerType customerType, long purchaseAmount) {
+    public double discount(CustomerType customerType, double purchaseAmount) {
 
         if (this.customerType != customerType) return 0;
 
@@ -29,11 +29,11 @@ public class RangeDiscountSlab implements DiscountSlab {
         return this.discountCalculator.calculate(purchaseAmount -  this.start);
     }
 
-    private boolean isGreaterThanSlabRange(long purchaseAmount) {
+    private boolean isGreaterThanSlabRange(double purchaseAmount) {
         return purchaseAmount > this.end;
     }
 
-    private boolean isInRange(long purchaseAmount) {
+    private boolean isInRange(double purchaseAmount) {
         return (purchaseAmount > this.start && purchaseAmount <= this.end);
     }
 }

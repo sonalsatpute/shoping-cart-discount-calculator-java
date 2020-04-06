@@ -5,24 +5,24 @@ import models.CustomerType;
 
 public class AboveDiscountSlab implements DiscountSlab {
     private CustomerType customerType;
-    private long start;
+    private double start;
     private Calculator calculator;
 
-    public AboveDiscountSlab(CustomerType customerType, long start, Calculator calculator) {
+    public AboveDiscountSlab(CustomerType customerType, double start, Calculator calculator) {
         this.customerType = customerType;
         this.start = start;
         this.calculator = calculator;
     }
 
     @Override
-    public long discount(CustomerType customerType, long purchaseAmount) {
+    public double discount(CustomerType customerType, double purchaseAmount) {
         if (this.customerType != customerType) return 0;
         if (isLessThanSlab(purchaseAmount)) return 0;
 
         return calculator.calculate(purchaseAmount - this.start);
     }
 
-    private boolean isLessThanSlab(long purchaseAmount) {
+    private boolean isLessThanSlab(double purchaseAmount) {
         return purchaseAmount < this.start;
     }
 }

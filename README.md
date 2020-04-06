@@ -29,5 +29,5 @@ Customer Type | Purchase Amount | Bill Amount |
 the program
 
 # Assumption
-- All inputs are valid and Purchase amount is always of type long :P
+- All inputs are valid.
 - Slabs Configuration are valid

@@ -8,7 +8,7 @@ public class DiscountCalculator implements Calculator {
         this.discountPercentage = discountPercentage;
     }
 
-    public long calculate(long purchaseAmount) {
-        return (long) (purchaseAmount * this.discountPercentage);
+    public double calculate(double purchaseAmount) {
+        return (purchaseAmount * this.discountPercentage);
     }
 }
